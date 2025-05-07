@@ -111,6 +111,19 @@
             audio.play().catch(error => console.log("Autoplay bloqueado por el navegador"));
         }
     </script>
+<style>
+  body {
+    overflow: hidden; /* Bloquea scroll al cargar */
+    margin: 0;
+  }
+</style>
+
+<script>
+  function iniciarPagina() {
+    // Habilita el scroll después de hacer clic
+    document.body.style.overflow = 'auto';
+  }
+</script>
 
 </body>
 </html>
