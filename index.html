@@ -46,79 +46,90 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reproducción Automática</title>
-<style>
-    /* Estilo para la pantalla de bienvenida con animación */
-    #pantallaBienvenida {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
-        backdrop-filter: blur(10px); /* Difuminar el fondo */
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 24px;
-        text-align: center;
-        cursor: pointer;
-        z-index: 9999;
-        opacity: 0; /* Inicialmente invisible */
-        transform: scale(0.9); /* Un poco más pequeño */
-        animation: fadeIn 1.5s ease-out forwards; /* Animación */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reproducción Automática</title>
+  <style>
+    body {
+      overflow: hidden; /* Bloquea scroll al cargar */
+      margin: 0;
     }
 
-    /* Definición de animación */
-
+    #pantallaBienvenida {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      text-align: center;
+      cursor: pointer;
+      z-index: 9999;
+      opacity: 0;
+      transform: scale(0.9);
+      animation: fadeIn 1.5s ease-out forwards;
+    }
 
     @keyframes fadeIn {
-        0% {
-            opacity: 0;
-            transform: scale(0.9);
-        }
-        100% {
-            opacity: 1;
-            transform: scale(1);
-        }
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
-</style>
+
+    @keyframes slideOut {
+      to {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Pantalla de bienvenida -->
-    <div id="pantallaBienvenida" onclick="iniciarPagina()">
-        𝒲ℰℒ𝒞𝒪ℳℰ  <br>
-      𝒸𝓁𝒾𝒸𝓀 𝓉ℴ ℯ𝓃𝓉ℯ𝓇
-    </div>
+  <!-- Pantalla de bienvenida -->
+  <div id="pantallaBienvenida" onclick="iniciarPagina()">
+    𝒲ℰℒ𝒞𝒪ℳℰ <br>
+    𝒸𝓁𝒾𝒸𝓀 𝓉ℴ ℯ𝓃𝓉ℯ𝓇
+  </div>
 
-    <!-- Audio -->
-    <audio id="miAudio" loop>
-        <source src="https://acortar.link/dJ3JTn" type="audio/mp3">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
+  <!-- Audio -->
+  <audio id="miAudio" loop>
+    <source src="https://acortar.link/dJ3JTn" type="audio/mp3">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
 
-    <script>
-        function iniciarPagina() {
-            // Oculta la pantalla de bienvenida
-            document.getElementById("pantallaBienvenida").style.display = "none";
+  <script>
+    function iniciarPagina() {
+      const pantalla = document.getElementById("pantallaBienvenida");
+      const audio = document.getElementById("miAudio");
 
-            // Reproduce la música
-            var audio = document.getElementById("miAudio");
-            audio.play().catch(error => console.log("Autoplay bloqueado por el navegador"));
-        }
-    </script>
-<style>
-  body {
-    overflow: hidden; /* Bloquea scroll al cargar */
-    margin: 0;
-  }
-</style>
+      // Animación para deslizar la pantalla fuera
+      pantalla.style.animation = "slideOut 1s forwards";
 
-<script>
+      // Espera que termine la animación para ocultar y activar scroll
+      setTimeout(() => {
+        pantalla.style.display = "none";
+        document.body.style.overflow = "auto";
+      }, 1000);
+
+      // Intenta reproducir el audio
+      audio.play().catch(error => console.log("Autoplay bloqueado por el navegador"));
+    }
+  </script>
+</body>
+</html>
+
   function iniciarPagina() {
     // Habilita el scroll después de hacer clic
     document.body.style.overflow = 'auto';
