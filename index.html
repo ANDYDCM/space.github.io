@@ -43,19 +43,10 @@
 
 <body>
       <!--========================== MUSIC ============================-->
-  <audio id="miAudio" autoplay loop>
+<audio id="miAudio" autoplay loop>
     <source src="https://cdn.discordapp.com/attachments/1233881470364418220/1368619635091701850/Clara_La_San_-_Want_U_Lyric_Video.mp3?ex=681b84dc&is=681a335c&hm=932baa87e0694161e5a34154188e27d7d411e275ec13920fa05618393be0bb82&" type="audio/mp3">
     Tu navegador no soporta el elemento de audio.
 </audio>
-<br>
-<input type="range" id="volumen" min="0" max="1" step="0.1" onchange="cambiarVolumen()">
-<script>
-    function cambiarVolumen() {
-        var audio = document.getElementById("miAudio");
-        var volumen = document.getElementById("volumen").value;
-        audio.volume = volumen;
-    }
-</script>
     <!--==========================  ============================-->
   <div id="preloader"></div>
 
