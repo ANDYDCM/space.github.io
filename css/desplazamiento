@@ -1,8 +1,0 @@
-body {
-    overflow: hidden; /* Bloquea el desplazamiento */
-}
-
-/* Clase para habilitar el desplazamiento después del clic */
-.body-scroll {
-    overflow: auto; /* Restaura el desplazamiento */
-}
