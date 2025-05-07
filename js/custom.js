@@ -108,3 +108,15 @@ jQuery(document).ready(function( $ ) {
   });
 
 });
+
+function iniciarPagina() {
+    // Oculta la pantalla de bienvenida
+    document.getElementById("pantallaBienvenida").style.display = "none";
+
+    // Activa el desplazamiento de la página
+    document.body.classList.add("body-scroll");
+
+    // Reproduce la música
+    var audio = document.getElementById("miAudio");
+    audio.play().catch(error => console.log("Autoplay bloqueado por el navegador"));
+}
