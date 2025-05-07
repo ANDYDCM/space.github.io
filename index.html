@@ -42,6 +42,21 @@
 </head>
 
 <body>
+      <!--========================== MUSIC ============================-->
+  <audio id="miAudio" autoplay loop>
+    <source src="666666" type="audio/mp3">
+    Tu navegador no soporta el elemento de audio.
+</audio>
+<br>
+<input type="range" id="volumen" min="0" max="1" step="0.1" onchange="cambiarVolumen()">
+<script>
+    function cambiarVolumen() {
+        var audio = document.getElementById("miAudio");
+        var volumen = document.getElementById("volumen").value;
+        audio.volume = volumen;
+    }
+</script>
+    <!--==========================  ============================-->
   <div id="preloader"></div>
 
   <!--==========================
