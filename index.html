@@ -50,7 +50,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reproducción Automática</title>
 <style>
-    /* Estilo para la pantalla de bienvenida con fondo difuminado */
+    /* Estilo para la pantalla de bienvenida con animación */
     #pantallaBienvenida {
         position: fixed;
         top: 0;
@@ -67,11 +67,21 @@
         text-align: center;
         cursor: pointer;
         z-index: 9999;
+        opacity: 0; /* Inicialmente invisible */
+        transform: scale(0.9); /* Un poco más pequeño */
+        animation: fadeIn 1.5s ease-out forwards; /* Animación */
     }
 
-    /* Si deseas usar una imagen de fondo en lugar de un color sólido */
-    #pantallaBienvenida {
-        background: url('https://images.guns.lol/rJ3O4.jpg') center/cover no-repeat;
+    /* Definición de animación */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
     }
 </style>
 </head>
