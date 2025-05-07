@@ -49,25 +49,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reproducción Automática</title>
-    <style>
-        /* Estilo para la pantalla de bienvenida */
-        #pantallaBienvenida {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: black;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            text-align: center;
-            cursor: pointer;
-            z-index: 9999;
-        }
-    </style>
+<style>
+    /* Estilo para la pantalla de bienvenida con fondo difuminado */
+    #pantallaBienvenida {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+        backdrop-filter: blur(10px); /* Difuminar el fondo */
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        text-align: center;
+        cursor: pointer;
+        z-index: 9999;
+    }
+
+    /* Si deseas usar una imagen de fondo en lugar de un color sólido */
+    #pantallaBienvenida {
+        background: url('https://images.guns.lol/rJ3O4.jpg') center/cover no-repeat;
+    }
+</style>
 </head>
 <body>
 
