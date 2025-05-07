@@ -49,19 +49,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reproducción Automática</title>
+    <style>
+        /* Estilo para la pantalla de bienvenida */
+        #pantallaBienvenida {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+            z-index: 9999;
+        }
+    </style>
 </head>
 <body>
 
-    <audio id="miAudio" autoplay loop>
+    <!-- Pantalla de bienvenida -->
+    <div id="pantallaBienvenida" onclick="iniciarPagina()">
+        Haz clic para entrar
+    </div>
+
+    <!-- Audio -->
+    <audio id="miAudio" loop>
         <source src="https://acortar.link/dJ3JTn" type="audio/mp3">
         Tu navegador no soporta el elemento de audio.
     </audio>
 
     <script>
-        window.onload = function() {
+        function iniciarPagina() {
+            // Oculta la pantalla de bienvenida
+            document.getElementById("pantallaBienvenida").style.display = "none";
+
+            // Reproduce la música
             var audio = document.getElementById("miAudio");
             audio.play().catch(error => console.log("Autoplay bloqueado por el navegador"));
-        };
+        }
     </script>
 
 </body>
