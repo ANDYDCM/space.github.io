@@ -13,7 +13,7 @@ a {
 }
 
 a:hover, a:active, a:focus {
-  color: #03c5ec;
+  color: #ffffff;
   outline: none;
   text-decoration: none;
 }
@@ -76,22 +76,17 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Welcome
 --------------------------------------------------------------*/
+/* Eliminar cualquier borde no deseado de #hero */
 #hero {
   display: table;
   width: 100%;
   height: 100vh;
   background: url(../img/hero-bg.jpg) top center fixed;
   background-size: cover;
+  border: none;
 }
 
-#hero .hero-logo {
-  margin: 20px;
-}
-
-#hero .hero-logo img {
-  max-width: 100%;
-}
-
+/* Hero container sin bordes adicionales */
 #hero .hero-container {
   background: rgba(0, 0, 0, 0.8);
   display: table-cell;
@@ -99,77 +94,174 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   text-align: center;
   vertical-align: middle;
+  border: none;
+}
+/*  adicionales */
+
+/* Hero Section */
+#hero {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  background: url(../img/hero-bg.jpg) top center fixed;
+  background-size: cover;
+  border: none;
+  position: relative;
 }
 
+/* Hero container */
+#hero .hero-container {
+  background: rgba(0, 0, 0, 0.8);
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+}
+
+/* Estilo del logo de héroe */
+#hero .hero-logo img {
+  width: 200px;
+  height: 295px;
+  filter: none; /* Sin brillo */
+}
+
+/* Estilo del texto h1 con brillo sutil */
 #hero h1 {
-  margin: 30px 0 10px 0;
-  font-weight: 700;
-  line-height: 48px;
-  text-transform: uppercase;
+  font-size: 48px;
+  font-weight: bold;
   color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Brillo sutil */
 }
 
-@media (max-width: 768px) {
-  #hero h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-}
-
+/* Estilo del texto h2 */
 #hero h2 {
-  color: #999;
-  margin-bottom: 50px;
-}
-
-@media (max-width: 768px) {
-  #hero h2 {
-    font-size: 24px;
-    line-height: 26px;
-    margin-bottom: 30px;
-  }
-  #hero h2 .rotating {
-    display: block;
-  }
-}
-
-#hero .rotating > .animated {
-  display: inline-block;
-}
-
-#hero .actions a {
-  font-family: "Raleway", sans-serif;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 8px 20px;
-  border-radius: 2px;
-  transition: 0.5s;
-  margin: 10px;
-}
-
-#hero .btn-get-started {
-  background: #990203;
-  border: 2px solid #990203;
+  font-size: 24px;
   color: #fff;
+  margin: 20px 0;
+}
+
+/* Estilo del texto rotativo */
+#hero .rotating {
+  font-weight: bold;
+  color: #FF6347; /* Color para el texto rotativo */
+}
+
+/* Estilo del botón de acción */
+.actions {
+  margin-top: 30px;
+}
+
+.btn-get-started {
+  padding: 10px 20px;
+  background-color: #FF6347;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+
+/* Estilo del botón */
+#hero .btn-get-started {
+  /* Degradado animado circular */
+  background: radial-gradient(circle at center, rgba(255, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+  background-size: 200% 200%;
+  background-position: center;
+  animation: swirlGradient 10s ease-in-out infinite;
+
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 12.6px 25.2px; /* Aumento del 5% en el padding */
+  font-size: 16.8px; /* Aumento del 5% en el tamaño de la fuente */
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s, border 0.3s;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  box-sizing: border-box;
+  top: 50px;
+  left: 0px;
+  width: auto;
+  background-clip: padding-box;
+  cursor: pointer;
+  z-index: 1;
+
+  /* Sombras y brillo exterior suave */
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.4),
+    0 0 18px rgba(255, 255, 255, 0.2),
+    0 5px 15px rgba(0, 0, 0, 0.3);
+
+  /* Brillo del texto más sutil */
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.3),
+    0 0 6px rgba(255, 255, 255, 0.2);
+
+  /* Pulso animado */
+  animation: pulse 3s infinite ease-in-out, swirlGradient 10s infinite ease-in-out;
+}
+
+#hero .btn-get-started::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 30px;
+  z-index: -1;
+  transition: background 0.3s;
 }
 
 #hero .btn-get-started:hover {
-  background: none;
   border: 2px solid #fff;
   color: #fff;
+  box-shadow:
+    0 0 16px rgba(255, 255, 255, 0.5),
+    0 10px 25px rgba(0, 0, 0, 0.5);
+  transform: scale(1.08); /* Mantiene el escalado */
 }
 
-#hero .btn-services {
+#hero .btn-get-started:hover::before {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#hero .btn-get-started:active {
+  transform: scale(1.02);
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.4),
+    0 6px 16px rgba(0, 0, 0, 0.3);
   border: 2px solid #fff;
-  color: #fff;
 }
 
-#hero .btn-services:hover {
-  background: #990203;
-  border: 2px solid #990203;
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 10px rgba(255, 255, 255, 0.4),
+      0 0 18px rgba(255, 255, 255, 0.2),
+      0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow:
+      0 0 14px rgba(255, 255, 255, 0.5),
+      0 0 24px rgba(255, 255, 255, 0.25),
+      0 8px 20px rgba(0, 0, 0, 0.4);
+  }
 }
+
+@keyframes swirlGradient {
+  0% { background-position: 50% 50%; }
+  25% { background-position: 60% 40%; }
+  50% { background-position: 50% 60%; }
+  75% { background-position: 40% 40%; }
+  100% { background-position: 50% 50%; }
+}
+
 
 /*--------------------------------------------------------------
 # Header
@@ -474,12 +566,34 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------*/
 #about {
   background: #fff;
-  padding: 80px 0;
+  padding: 80px 0;S
 }
 
+
 #about .about-container {
-  background: url(https://images.guns.lol/al8U5.jpg) left top no-repeat;
+  width: 100%;
+  height: 600px;
+  background: url(https://images.guns.lol/2sDRO.jpeg) no-repeat;
+  background-size: 500px 500px;
+  background-position: 200px top; /* empuja la imagen un poco a la derecha */
 }
+
+/* Estilo para móviles */
+@media (max-width: 768px) {
+  #about .about-container {
+    background-size: cover;
+    background-position: 10% top; /* aún ligeramente a la derecha */
+  }
+
+  /* Ajustamos el contenido de la derecha */
+  .contenido-derecha {
+    margin-top: 320px; /* deja espacio para que no se monte encima */
+    padding: 10px;
+  }
+}
+
+
+
 
 #about .about-content {
   background: #fff;
