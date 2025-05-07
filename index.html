@@ -73,7 +73,7 @@
       z-index: 9999;
       opacity: 0;
       transform: scale(0.9);
-      animation: fadeIn 1.5s ease-out forwards;
+      animation: fadeIn 1s ease-out forwards; /* Más rápida */
     }
 
     @keyframes fadeIn {
@@ -84,13 +84,6 @@
       100% {
         opacity: 1;
         transform: scale(1);
-      }
-    }
-
-    @keyframes slideOut {
-      to {
-        transform: translateX(100%);
-        opacity: 0;
       }
     }
   </style>
@@ -111,33 +104,20 @@
 
   <script>
     function iniciarPagina() {
-      const pantalla = document.getElementById("pantallaBienvenida");
+      // Oculta la pantalla de bienvenida inmediatamente
+      document.getElementById("pantallaBienvenida").style.display = "none";
+
+      // Activa el scroll
+      document.body.style.overflow = "auto";
+
+      // Reproduce la música
       const audio = document.getElementById("miAudio");
-
-      // Animación para deslizar la pantalla fuera
-      pantalla.style.animation = "slideOut 1s forwards";
-
-      // Espera que termine la animación para ocultar y activar scroll
-      setTimeout(() => {
-        pantalla.style.display = "none";
-        document.body.style.overflow = "auto";
-      }, 1000);
-
-      // Intenta reproducir el audio
       audio.play().catch(error => console.log("Autoplay bloqueado por el navegador"));
     }
   </script>
 </body>
 </html>
 
-  function iniciarPagina() {
-    // Habilita el scroll después de hacer clic
-    document.body.style.overflow = 'auto';
-  }
-</script>
-<script>
-</body>
-</html>
   <!--========================== ============================-->
 <!--==========================
   Hero Section
